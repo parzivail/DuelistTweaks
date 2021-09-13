@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.parzivail.duelist_tweaks.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+	],
+	"client": [
+		"SkullBlockMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

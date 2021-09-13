@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"fff",
+		"fhf",
+		"fff"
+	],
+	"key": {
+		"f": {
+			"item": "minecraft:rotten_flesh"
+		},
+		"h": {
+			"item": "minecraft:hay_block"
+		}
+	},
+	"result": {
+		"item": "minecraft:player_head",
+		"count": 1
+	}
+}
