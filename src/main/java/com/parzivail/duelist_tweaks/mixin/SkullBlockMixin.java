@@ -1,8 +1,6 @@
 package com.parzivail.duelist_tweaks.mixin;
 
 import com.parzivail.duelist_tweaks.helper.SkullBlockHelper;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.AbstractSkullBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SkullBlock;
@@ -15,7 +13,6 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(SkullBlock.class)
-@Environment(EnvType.CLIENT)
 public class SkullBlockMixin extends AbstractSkullBlock
 {
 	public SkullBlockMixin(SkullBlock.SkullType type, Settings settings)

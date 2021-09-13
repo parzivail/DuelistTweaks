@@ -4,9 +4,12 @@
 	"package": "com.parzivail.duelist_tweaks.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
+		"RecipeManagerMixin",
+		"ReloadableResourceManagerImplMixin",
+		"SkullBlockMixin"
 	],
 	"client": [
-		"SkullBlockMixin"
+		"SpriteAtlasTextureMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

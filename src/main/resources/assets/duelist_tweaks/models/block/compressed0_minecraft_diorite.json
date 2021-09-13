@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "duelist_tweaks:block/compressed0_minecraft_diorite"
+	}
+}
