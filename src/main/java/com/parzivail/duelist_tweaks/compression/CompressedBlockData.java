@@ -9,10 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
@@ -81,10 +78,18 @@ public class CompressedBlockData
 					Ingredient.ofItems(previousBlock), Ingredient.ofItems(previousBlock), Ingredient.ofItems(previousBlock),
 					Ingredient.ofItems(previousBlock), Ingredient.ofItems(previousBlock), Ingredient.ofItems(previousBlock)
 			);
-			Recipe<?> recipe = new ShapedRecipe(DTweaks.id(String.format("compress_%s_%s", previousBlockId.getNamespace(), previousBlockId.getPath())), "", 3, 3, ingredients, new ItemStack(thisBlock));
+			Recipe<?> recipeCompressed = new ShapedRecipe(DTweaks.id(String.format("compress_%s_%s", previousBlockId.getNamespace(), previousBlockId.getPath())), "", 3, 3, ingredients, new ItemStack(thisBlock));
 
-			recipes.computeIfAbsent(recipe.getType(), (recipeType) -> ImmutableMap.builder())
-			       .put(recipe.getId(), recipe);
+			recipes.computeIfAbsent(recipeCompressed.getType(), (recipeType) -> ImmutableMap.builder())
+			       .put(recipeCompressed.getId(), recipeCompressed);
+
+			Recipe<?> recipeDecompressed = new ShapelessRecipe(DTweaks.id(String.format("decompress_%s_%s", previousBlockId.getNamespace(), previousBlockId.getPath())), "", new ItemStack(previousBlock, 9), DefaultedList.copyOf(
+					Ingredient.EMPTY,
+					Ingredient.ofItems(thisBlock)
+			));
+
+			recipes.computeIfAbsent(recipeDecompressed.getType(), (recipeType) -> ImmutableMap.builder())
+			       .put(recipeDecompressed.getId(), recipeDecompressed);
 		}
 	}
 
